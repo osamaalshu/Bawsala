@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette — Suggested Color Palette #2 */
+  --color-ink: #1a0f20;          /* deep brand background */
+  --color-plum: #291532;         /* logo brand purple */
+  --color-plum-700: #3a1f47;
+  --color-leadership: #24527a;   /* Leadership Blue */
+  --color-purpose: #5e4b8b;      /* Purpose Purple */
+  --color-sky: #a5c9ea;          /* Sky Clarity */
+  --color-orchid: #a678d0;       /* Orchid Energy */
+  --color-cloud: #f5f6fa;        /* Cloud White */
+  --color-moonlight: #dadce5;    /* Moonlight Silver */
+
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-cloud);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-orchid);
+  color: #fff;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-purpose);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-orchid);
+}
+
+/* Reusable utilities */
+@layer components {
+  .container-x {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+}
+
+.text-gradient {
+  background: linear-gradient(120deg, var(--color-sky), var(--color-orchid));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.glow-orchid {
+  box-shadow: 0 0 60px -15px rgba(166, 120, 208, 0.55);
+}
+
+/* Aurora background blobs */
+.aurora {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-30px) translateX(20px); }
+}
+.animate-float-slow {
+  animation: float-slow 14s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-float-slow, .animate-marquee { animation: none; }
+}

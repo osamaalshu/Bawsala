@@ -1,0 +1,22 @@
+{
+  "name": "bawsala-fellowship",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bawsala Fellowship — a transformative leadership journey for high-potential Omani youth.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "framer-motion": "^11.18.2",
+    "next": "^15.5.19",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "tailwindcss": "^4.0.0"
+  }
+}
