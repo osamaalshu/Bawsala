@@ -1,0 +1,14 @@
+# Netlify build configuration for the Bawsala Fellowship (Next.js 15 App Router) site.
+# The official Next.js runtime plugin handles output/routing, so do NOT set a
+# manual `publish` directory (e.g. "out" or ".next") — that would break SSR/routing.
+
+[build]
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Official Netlify Next.js runtime. Netlify auto-installs this when it detects
+# Next.js; pinning it here makes deploys reproducible.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
