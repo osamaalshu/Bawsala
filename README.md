@@ -63,6 +63,6 @@ Deploys cleanly to [Vercel](https://vercel.com/) (zero config) or any Node host 
 
 ## Notes
 
-- The **Apply Now** buttons point to `APPLY_URL` in `lib/content.js` — replace the placeholder
-  with the live Jotform application link.
+- The **Apply Now** buttons point to `APPLY_URL` in `lib/content.js`, wired to the live Jotform
+  registration form.
 - The **Mentors** section is built to host a mentor gallery; swap the category chips for photos when available.
