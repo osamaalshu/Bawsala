@@ -1,25 +1,41 @@
+"use client";
+
+import { useState } from "react";
 import SectionHeading from "./SectionHeading";
+import Reveal from "./Reveal";
 import { partners } from "@/lib/content";
 
+function PartnerTile({ name, logo }) {
+  const [errored, setErrored] = useState(false);
+  return (
+    <div className="flex h-24 items-center justify-center rounded-2xl border border-white/10 bg-cloud px-6 transition-transform duration-300 hover:-translate-y-1">
+      {logo && !errored ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={logo}
+          alt={name}
+          loading="lazy"
+          onError={() => setErrored(true)}
+          className="max-h-14 w-auto max-w-[80%] object-contain"
+        />
+      ) : (
+        <span className="text-center text-sm font-semibold text-plum">{name}</span>
+      )}
+    </div>
+  );
+}
+
 export default function Partners() {
-  const row = [...partners, ...partners];
   return (
     <section id="partners" className="relative py-24 sm:py-28">
       <div className="container-x">
         <SectionHeading eyebrow="Partners & Sponsors" title="Trusted by Leading Institutions" />
-      </div>
 
-      <div className="relative mt-14 overflow-hidden">
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-ink to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-ink to-transparent" />
-        <div className="flex w-max animate-marquee gap-4">
-          {row.map((name, i) => (
-            <div
-              key={`${name}-${i}`}
-              className="flex h-20 min-w-[16rem] items-center justify-center rounded-2xl border border-white/8 bg-white/[0.03] px-8 text-center text-sm font-semibold text-moonlight/75"
-            >
-              {name}
-            </div>
+        <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          {partners.map((p, i) => (
+            <Reveal key={p.name} delay={(i % 4) * 0.06}>
+              <PartnerTile name={p.name} logo={p.logo} />
+            </Reveal>
           ))}
         </div>
       </div>

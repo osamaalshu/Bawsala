@@ -12,7 +12,7 @@ export default function Eligibility() {
             <SectionHeading
               eyebrow="Who Should Apply?"
               title="Eligibility"
-              subtitle="You should apply if you:"
+              subtitle="You should apply if you are:"
               align="left"
             />
             <Reveal delay={0.1}>
