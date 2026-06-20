@@ -1,6 +1,6 @@
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
-import { mentorCategories, mentors } from "@/lib/content";
+import { mentors } from "@/lib/content";
 
 function MentorCard({ name, position, photo }) {
   return (
@@ -32,17 +32,6 @@ export default function Mentors() {
           title="Learn From Those Shaping Oman's Future"
           subtitle="The Fellowship brings together ministers, CEOs, diplomats, entrepreneurs, academics, and industry leaders who invest their time in supporting the next generation of Omani talent."
         />
-
-        <div className="mt-14 flex flex-wrap justify-center gap-3">
-          {mentorCategories.map((cat, i) => (
-            <Reveal key={cat} delay={(i % 4) * 0.05}>
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-sm font-medium text-moonlight/80 transition-colors hover:border-orchid/40 hover:text-cloud">
-                <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-orchid to-sky" />
-                {cat}
-              </span>
-            </Reveal>
-          ))}
-        </div>
 
         <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:gap-6">
           {mentors.map((mentor, i) => (

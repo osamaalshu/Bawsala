@@ -8,7 +8,7 @@ import { partners } from "@/lib/content";
 function PartnerTile({ name, logo }) {
   const [errored, setErrored] = useState(false);
   return (
-    <div className="flex h-28 items-center justify-center rounded-2xl border border-white/10 bg-black px-6 transition-transform duration-300 hover:-translate-y-1">
+    <div className="flex h-28 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] px-6 transition-all duration-300 hover:-translate-y-1 hover:border-orchid/30">
       {logo && !errored ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
@@ -19,7 +19,7 @@ function PartnerTile({ name, logo }) {
           className="max-h-16 w-auto max-w-[85%] object-contain"
         />
       ) : (
-        <span className="text-center text-sm font-semibold text-plum">{name}</span>
+        <span className="text-center text-sm font-semibold text-moonlight/80">{name}</span>
       )}
     </div>
   );
