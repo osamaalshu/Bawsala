@@ -6,6 +6,7 @@ import Objectives from "@/components/Objectives";
 import Journey from "@/components/Journey";
 import Program from "@/components/Program";
 import Stats from "@/components/Stats";
+import GraduationVideo from "@/components/GraduationVideo";
 import Mentors from "@/components/Mentors";
 import Partners from "@/components/Partners";
 import Eligibility from "@/components/Eligibility";
@@ -25,6 +26,7 @@ export default function Home() {
         <Journey />
         <Program />
         <Stats />
+        <GraduationVideo />
         <Mentors />
         <Partners />
         <Eligibility />
