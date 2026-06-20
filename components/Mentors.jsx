@@ -1,6 +1,27 @@
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
-import { mentorCategories } from "@/lib/content";
+import { mentorCategories, mentors } from "@/lib/content";
+
+function MentorCard({ name, position, photo }) {
+  return (
+    <article className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition-transform duration-300 hover:-translate-y-1">
+      <div className="relative aspect-[3/4] overflow-hidden bg-plum/40">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={photo}
+          alt={name}
+          loading="lazy"
+          className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+        />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink/80 to-transparent" />
+      </div>
+      <div className="p-4">
+        <h3 className="text-sm font-semibold leading-snug text-cloud sm:text-base">{name}</h3>
+        <p className="mt-1.5 text-xs leading-relaxed text-moonlight/70 sm:text-sm">{position}</p>
+      </div>
+    </article>
+  );
+}
 
 export default function Mentors() {
   return (
@@ -23,14 +44,13 @@ export default function Mentors() {
           ))}
         </div>
 
-        <Reveal delay={0.1}>
-          <div className="mx-auto mt-12 max-w-2xl rounded-2xl border border-white/8 bg-white/[0.03] p-6 text-center">
-            <p className="text-sm text-moonlight/70">
-              A full mentor gallery is coming soon — featuring senior leaders from across government,
-              business, and civil society.
-            </p>
-          </div>
-        </Reveal>
+        <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:gap-6">
+          {mentors.map((mentor, i) => (
+            <Reveal key={mentor.name} delay={(i % 4) * 0.06}>
+              <MentorCard {...mentor} />
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
