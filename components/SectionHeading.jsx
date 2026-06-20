@@ -6,7 +6,7 @@ export default function SectionHeading({ eyebrow, title, subtitle, align = "cent
     <div className={`flex flex-col gap-4 max-w-3xl ${alignment}`}>
       {eyebrow && (
         <Reveal>
-          <span className="inline-flex items-center gap-2 rounded-full border border-orchid/30 bg-orchid/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-orchid">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-orchid/90">
             {eyebrow}
           </span>
         </Reveal>
